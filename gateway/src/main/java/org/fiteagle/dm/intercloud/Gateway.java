@@ -32,14 +32,18 @@ public class Gateway {
     	return messageList;
     }
     
-    public void init() throws XMPPException {
+    public void init(String username, String password) throws XMPPException {
         
  //       System.out.println(String.format("Initializing connection to server %1$s port %2$d", server, port));
         
         config = new ConnectionConfiguration(server, port);
-        
-        connection = new XMPPConnection(config);
-        connection.connect();
+        final XMPPConnection connection = new XMPPConnection(config);
+		connection.connect();
+		try {
+			connection.getAccountManager().createAccount(username, password);
+		}catch (XMPPException e) {
+    		e.printStackTrace();
+    	}
         
  //       System.out.println("Connected: " + connection.isConnected());
         

@@ -28,7 +28,7 @@ public class RootServlet extends HttpServlet {
     public RootServlet() {
         super();
         try {
-        	root.init();
+        	root.init("root", "root");
         	root.performLogin("root", "root");
         } catch (XMPPException e) {
         	e.printStackTrace();
