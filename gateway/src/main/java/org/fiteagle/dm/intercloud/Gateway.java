@@ -1,4 +1,4 @@
-package de.tu_berlin.av.intercloud;
+package org.fiteagle.dm.intercloud;
 
 import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.XMPPConnection;
