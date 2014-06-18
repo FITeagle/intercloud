@@ -3,7 +3,6 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>root</artifactId>
   <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -34,6 +33,7 @@
   <parent>
   	<groupId>org.fiteagle.dm</groupId>
   	<artifactId>intercloud</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
   </parent>
   <name>Intercloud::Root</name>
 </project>
