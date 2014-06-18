@@ -32,7 +32,7 @@ public class Gateway {
     	return messageList;
     }
     
-    public void init(String username, String password) throws XMPPException {
+    public void init() throws XMPPException {
         
  //       System.out.println(String.format("Initializing connection to server %1$s port %2$d", server, port));
         

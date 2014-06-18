@@ -10,8 +10,38 @@
   	<description></description>
   	<servlet-class>org.fiteagle.dm.intercloud.GatewayServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<display-name>LoginServlet</display-name>
+  	<description></description>
+  	<servlet-class>org.fiteagle.dm.intercloud.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CheckLoggedInServlet</servlet-name>
+  	<display-name>CheckLoggedInServlet</display-name>
+  	<description></description>
+  	<servlet-class>org.fiteagle.dm.intercloud.CheckLoggedInServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<display-name>LogoutServlet</display-name>
+  	<description></description>
+  	<servlet-class>org.fiteagle.dm.intercloud.LogoutServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>GatewayServlet</servlet-name>
   	<url-pattern>/GatewayServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CheckLoggedInServlet</servlet-name>
+  	<url-pattern>/CheckLoggedInServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<url-pattern>/LogoutServlet</url-pattern>
   </servlet-mapping>
 </web-app>
