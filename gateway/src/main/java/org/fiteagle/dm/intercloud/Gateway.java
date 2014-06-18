@@ -37,7 +37,7 @@ public class Gateway {
  //       System.out.println(String.format("Initializing connection to server %1$s port %2$d", server, port));
         
         config = new ConnectionConfiguration(server, port);
-        final XMPPConnection connection = new XMPPConnection(config);
+        connection = new XMPPConnection(config);
 		connection.connect();
 		try {
 			connection.getAccountManager().createAccount(username, password);
