@@ -29,10 +29,12 @@ public class RootServlet extends HttpServlet {
         super();
         try {
         	root.init("root", "root");
-        	root.performLogin("root", "root");
+        	
         } catch (XMPPException e) {
         	e.printStackTrace();
         }
+        
+        root.performLogin("root", "root");
     }
 
 	/**

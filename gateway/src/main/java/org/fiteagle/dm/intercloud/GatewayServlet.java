@@ -27,12 +27,13 @@ public class GatewayServlet extends HttpServlet {
     	super();
     	try {
     		gateway.init("gateway1", "gateway1");
-    		gateway.performLogin("gateway1", "gateway1");
 //    		gateway2.init();
 //    		gateway2.performLogin("gateway2", "gateway2");
     	} catch (XMPPException e) {
     		e.printStackTrace();
     	}
+    	
+    	gateway.performLogin("gateway1", "gateway1");
     }
 
 	/**

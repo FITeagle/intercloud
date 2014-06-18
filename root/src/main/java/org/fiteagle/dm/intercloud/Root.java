@@ -55,10 +55,24 @@ public class Root {
         
     }
     
-    public void performLogin(String username, String password) throws XMPPException {
+    public boolean performLogin(String username, String password)  {
         if (connection!=null && connection.isConnected()) {
-            connection.login(username, password);
-        }
+            if(!connection.isAuthenticated()){
+          	  try {
+    				connection.getAccountManager().createAccount(username, password);
+    				}catch (XMPPException e) {
+    					e.printStackTrace();
+    					}
+    				}
+  			try{
+  					connection.login(username, password);
+  				}catch(XMPPException e2) {
+  				e2.printStackTrace();
+  				return false; 
+            }
+  		return true;
+          }
+          else return false;
     }
     
     public void destroy() {
