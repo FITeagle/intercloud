@@ -8,7 +8,7 @@
   	<servlet-name>RootServlet</servlet-name>
   	<display-name>RootServlet</display-name>
   	<description></description>
-  	<servlet-class>de.tu_berlin.av.intercloud.RootServlet</servlet-class>
+  	<servlet-class>org.fiteagle.dm.intercloud.RootServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>RootServlet</servlet-name>
