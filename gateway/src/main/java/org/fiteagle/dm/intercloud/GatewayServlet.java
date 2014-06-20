@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.jivesoftware.smack.XMPPException;
+
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.vocabulary.VCARD;
 /**
  * Servlet implementation class GatewayServlet
  */
@@ -39,10 +44,14 @@ public class GatewayServlet extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		gateway = (Gateway) session.getAttribute("gateway");
 		String gatewayName = (String) session.getAttribute("user");
-		gateway.sendMessage("Hello root, I'm " + gatewayName, "root@localhost/Smack"); 
+		Model model = ModelFactory.createDefaultModel();
+		Resource cloud = model.createResource("http://" + gatewayName)
+				.addProperty(VCARD.EMAIL, "admin@Cloud")
+				.addProperty(VCARD.FN, gatewayName);
+		gateway.sendMessage(model, "root@localhost/Smack"); 
 		PrintWriter out = response.getWriter();
 		out.println(PAGE_HEADER);
-		out.println("<h1>Message Send to Root</h1>");
+		out.println("<h1>RDF Message Send to Root</h1>");
 		out.println("<form action=\"LogoutServlet\" method=\"post\">");
 		out.println("<input type=\"submit\" value=\"Logout\" >");
 		out.println("</form>");

@@ -1,5 +1,7 @@
 package org.fiteagle.dm.intercloud;
 
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.util.ArrayList;
 
 import org.jivesoftware.smack.Chat;
@@ -10,6 +12,9 @@ import org.jivesoftware.smack.MessageListener;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.packet.Message;
+
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
 
 public class Root {
     private String server;
@@ -32,20 +37,13 @@ public class Root {
     	return messageList;
     }
     
-    public void init(String username, String password) throws XMPPException {
+    public void init() throws XMPPException {
         
  //       System.out.println(String.format("Initializing connection to server %1$s port %2$d", server, port));
         
         config = new ConnectionConfiguration(server, port);
         connection = new XMPPConnection(config);
 		connection.connect();
-		try {
-			connection.getAccountManager().createAccount(username, password);
-		}catch (XMPPException e) {
-    		e.printStackTrace();
-    	}
-        
- //       System.out.println("Connected: " + connection.isConnected());
         
         chatManager = connection.getChatManager();
         chatManager.addChatListener(new MyChatListener());
@@ -81,9 +79,17 @@ public class Root {
         }
     }
     
-    public void sendMessage(String message, String buddyJID) throws XMPPException {
+    public String RDFToString(Model model) {
+    	StringWriter out = new StringWriter();
+    	model.write(out, "JSON-LD");
+    	String modelXML = out.toString();
+    	return modelXML;
+    }
+    
+    public void sendMessage(Model model, String buddyJID) throws XMPPException {
 //        System.out.println(String.format("Sending message '%1$s' to user %2$s", message, buddyJID));
         Chat chat = chatManager.createChat(buddyJID, messageListener);
+        String message = RDFToString(model);
         chat.sendMessage(message);
     }
         

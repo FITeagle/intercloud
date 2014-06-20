@@ -8,6 +8,15 @@ import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.Chat;
 import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.ChatManagerListener;
+
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.RDFNode;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.StmtIterator;
+
+import java.io.StringWriter;
 import java.util.ArrayList;
 
 public class Gateway {
@@ -78,9 +87,17 @@ public class Gateway {
         }
     }
     
-    public void sendMessage(String message, String buddyJID) throws XMPPException {
+    public String RDFToString(Model model) {
+    	StringWriter out = new StringWriter();
+    	model.write(out, "JSON-LD");
+    	String modelXML = out.toString();
+    	return modelXML;
+    }
+    
+    public void sendMessage(Model model, String buddyJID) throws XMPPException {
 //        System.out.println(String.format("Sending message '%1$s' to user %2$s", message, buddyJID));
         Chat chat = chatManager.createChat(buddyJID, messageListener);
+        String message = RDFToString(model);
         chat.sendMessage(message);
     }
         

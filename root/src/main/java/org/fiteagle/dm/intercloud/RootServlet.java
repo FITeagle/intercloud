@@ -2,13 +2,19 @@ package org.fiteagle.dm.intercloud;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpUtils;
 
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.jivesoftware.smack.XMPPException;
+
+import com.hp.hpl.jena.rdf.model.Model;
 
 /**
  * Servlet implementation class RootServlet
@@ -28,7 +34,7 @@ public class RootServlet extends HttpServlet {
     public RootServlet() {
         super();
         try {
-        	root.init("root", "root");        	
+        	root.init();        	
         } catch (XMPPException e) {
         	e.printStackTrace();
         }
@@ -46,7 +52,7 @@ public class RootServlet extends HttpServlet {
 		ArrayList<String> messageList = root.getMessage();
 		out.println("<h1>" + Integer.toString(messageList.size()) + " Messages Recieved</h1>");
 		for (int i = 0; i != messageList.size(); i++) {
-			out.println("<h1>"+ Integer.toString(i) + ": " +messageList.get(i)+"</h1>");
+			out.println("<h1>"+ Integer.toString(i) + ": " + messageList.get(i) +"</h1>");
 		}
 		out.println();
 		out.println(PAGE_FOOTER);
