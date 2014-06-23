@@ -6,6 +6,10 @@
   <name>Intercloud</name>
   <description>FITeagle | Intercloud Project</description>
   <packaging>pom</packaging>
+	<modules>
+        <module>root</module>
+        <module>gateway</module>
+	</modules>
   <dependencies>
   	<dependency>
   		<groupId>jivesoftware</groupId>
