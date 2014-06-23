@@ -6,10 +6,6 @@
   <name>Intercloud</name>
   <description>FITeagle | Intercloud Project</description>
   <packaging>pom</packaging>
-	<modules>
-        <module>root</module>
-        <module>gateway</module>
-	</modules>
   <dependencies>
   	<dependency>
   		<groupId>jivesoftware</groupId>
@@ -49,11 +45,22 @@
                 <compilerArgument></compilerArgument>
             </configuration>
         </plugin>
-  		<plugin>
+        <plugin>
+        	<artifactId>maven-war-plugin</artifactId>
+        	<version>2.1.1</version>
+        	<configuration>
+        		<failOnMissingWebXml>false</failOnMissingWebXml>
+        	</configuration>
+        </plugin>
+        <plugin>
   			<groupId>org.wildfly.plugins</groupId>
   			<artifactId>wildfly-maven-plugin</artifactId>
-  			<version>1.0.1.Final</version>
+  			<version>1.0.2.Final</version>
   		</plugin>
   	</plugins>
   </build>
+  <modules>
+  	<module>gateway</module>
+  	<module>root</module>
+  </modules>
 </project>

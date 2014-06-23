@@ -108,4 +108,7 @@ public class Root {
     		}
     	}
     }
+    public static int main() {
+    	return 0;
+    }
 }
