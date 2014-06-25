@@ -12,4 +12,7 @@
   	<relativePath>..</relativePath>
   </parent>
   <name>Intercloud::Root</name>
+  <build>
+  	<finalName>${artifactId}</finalName>
+  </build>
 </project>

@@ -34,6 +34,10 @@
   		<version>3.3.2</version>
   	</dependency>
   </dependencies>
+  <modules>
+  	<module>gateway</module>
+  	<module>root</module>
+  </modules>
   <build>
   	<plugins>
     	<plugin>
@@ -59,8 +63,4 @@
   		</plugin>
   	</plugins>
   </build>
-  <modules>
-  	<module>gateway</module>
-  	<module>root</module>
-  </modules>
 </project>

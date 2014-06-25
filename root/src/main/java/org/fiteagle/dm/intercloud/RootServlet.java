@@ -40,19 +40,21 @@ public class RootServlet extends HttpServlet {
         }
         
         root.performLogin("root", "root");
+        root.connectToSparql("http://localhost:3030/geoTags/data");
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setIntHeader("Refresh", 2);
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.println(PAGE_HEADER);
-		ArrayList<String> messageList = root.getMessage();
+		ArrayList<Model> messageList = root.getMessage();
 		out.println("<h1>" + Integer.toString(messageList.size()) + " Messages Recieved</h1>");
 		for (int i = 0; i != messageList.size(); i++) {
-			out.println("<h1>"+ Integer.toString(i) + ": " + messageList.get(i) +"</h1>");
+			out.println("<h1>"+ Integer.toString(i) + ": " + root.RDFToString(messageList.get(i)) +"</h1>");
 		}
 		out.println();
 		out.println(PAGE_FOOTER);

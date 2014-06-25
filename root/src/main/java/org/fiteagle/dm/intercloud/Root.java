@@ -1,7 +1,10 @@
 package org.fiteagle.dm.intercloud;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 import org.jivesoftware.smack.Chat;
@@ -15,6 +18,8 @@ import org.jivesoftware.smack.packet.Message;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.query.DatasetAccessorFactory;
+import com.hp.hpl.jena.query.DatasetAccessor;
 
 public class Root {
     private String server;
@@ -26,21 +31,22 @@ public class Root {
     private ChatManager chatManager;
     private MessageListener messageListener;
     
-    private ArrayList<String> messageList;
+    private ArrayList<Model> messageList;
+    
+    private DatasetAccessor sparqlEndPoint;
+    private Model datasetModel;
     
     public Root(String server, int port) {
         this.server = server;
         this.port = port;
     }
     
-    public ArrayList<String> getMessage() {
+    public ArrayList<Model> getMessage() {
     	return messageList;
     }
     
     public void init() throws XMPPException {
-        
- //       System.out.println(String.format("Initializing connection to server %1$s port %2$d", server, port));
-        
+                
         config = new ConnectionConfiguration(server, port);
         connection = new XMPPConnection(config);
 		connection.connect();
@@ -49,7 +55,7 @@ public class Root {
         chatManager.addChatListener(new MyChatListener());
         messageListener = new MyMessageListener();
 
-        messageList = new ArrayList<String>();
+        messageList = new ArrayList<Model>();
         
     }
     
@@ -71,6 +77,11 @@ public class Root {
   		return true;
           }
           else return false;
+    }
+    
+    public void connectToSparql(String serviceURI) {
+    	sparqlEndPoint = DatasetAccessorFactory.createHTTP(serviceURI);
+    	datasetModel = sparqlEndPoint.getModel();
     }
     
     public void destroy() {
@@ -95,9 +106,18 @@ public class Root {
         
     class MyMessageListener implements MessageListener {
 
-        public void processMessage(Chat chat, Message message) {
+    	public Model stringToRDF(String modelInString) {
+    		InputStream in = new ByteArrayInputStream(modelInString.getBytes(StandardCharsets.UTF_8));
+    		Model model = ModelFactory.createDefaultModel();
+    		model.read(in, null, "JSON-LD");
+    		return model;
+    	}
+    	
+    	public void processMessage(Chat chat, Message message) {
             String body = message.getBody();
-            messageList.add(body);
+            Model model = stringToRDF(body);
+            sparqlEndPoint.add(model);
+            messageList.add(model);
         }
         
     }
