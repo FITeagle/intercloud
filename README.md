@@ -7,7 +7,7 @@ Deploy FITeagle platform according to https://github.com/FITeagle/bootstrap/READ
 
 ## Download the intercloud code
 ```
-git clone https://github.com/FITeagle/bootstrap.git
+git clone https://github.com/FITeagle/intercloud.git
 ```
 
 ## Start J2EE Server
@@ -24,7 +24,11 @@ Keep the XMPP server running
 ##Compile and Deploy root and gateway
 Relocate into the root or gateway folder and use the following command
 ```
-mvn clean package wildfly:deploy
+./intercloud.sh deployRoot
+```
+or
+```
+./intercloud.sh deployGateway
 ```
 ##Create the root and gateway
 Open web site for root 
@@ -33,7 +37,7 @@ http://localhost:8080/root/
 ```
 and for gateway 
 ```
-http://localhost:8080/gateway 
+http://localhost:8080/gateway/ 
 ```
 to check the messages exchanged between the root and the gateway.
 
@@ -47,4 +51,5 @@ http://localhost:9090/
 Login with
 
 Username:admin
+
 Password:admin 
