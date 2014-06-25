@@ -5,10 +5,10 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
-  	<servlet-name>GatewayServlet</servlet-name>
-  	<display-name>GatewayServlet</display-name>
+  	<servlet-name>AddResourceServlet</servlet-name>
+  	<display-name>AddResourceServlet</display-name>
   	<description></description>
-  	<servlet-class>org.fiteagle.dm.intercloud.GatewayServlet</servlet-class>
+  	<servlet-class>org.fiteagle.dm.intercloud.AddResourceServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>LoginServlet</servlet-name>
@@ -28,9 +28,21 @@
   	<description></description>
   	<servlet-class>org.fiteagle.dm.intercloud.LogoutServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>QueryResourceServlet</servlet-name>
+  	<display-name>QueryResourceServlet</display-name>
+  	<description></description>
+  	<servlet-class>org.fiteagle.dm.intercloud.QueryResourceServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ShowResultsServlet</servlet-name>
+  	<display-name>ShowResultsServlet</display-name>
+  	<description></description>
+  	<servlet-class>org.fiteagle.dm.intercloud.ShowResultsServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
-  	<servlet-name>GatewayServlet</servlet-name>
-  	<url-pattern>/GatewayServlet</url-pattern>
+  	<servlet-name>AddResourceServlet</servlet-name>
+  	<url-pattern>/AddResourceServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
@@ -43,5 +55,13 @@
   <servlet-mapping>
   	<servlet-name>LogoutServlet</servlet-name>
   	<url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>QueryResourceServlet</servlet-name>
+  	<url-pattern>/QueryResourceServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ShowResultsServlet</servlet-name>
+  	<url-pattern>/ShowResultsServlet</url-pattern>
   </servlet-mapping>
 </web-app>

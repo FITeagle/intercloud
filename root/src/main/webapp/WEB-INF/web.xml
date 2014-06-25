@@ -9,9 +9,20 @@
   	<display-name>RootServlet</display-name>
   	<description></description>
   	<servlet-class>org.fiteagle.dm.intercloud.RootServlet</servlet-class>
+  	<load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet>
+  	<servlet-name>QueryEndPointServlet</servlet-name>
+  	<display-name>QueryEndPointServlet</display-name>
+  	<description></description>
+  	<servlet-class>org.fiteagle.dm.intercloud.QueryEndPointServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>RootServlet</servlet-name>
   	<url-pattern>/RootServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>QueryEndPointServlet</servlet-name>
+  	<url-pattern>/QueryEndPointServlet</url-pattern>
   </servlet-mapping>
 </web-app>

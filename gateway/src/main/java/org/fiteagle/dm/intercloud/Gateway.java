@@ -10,11 +10,6 @@ import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.ChatManagerListener;
 
 import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.rdf.model.StmtIterator;
 
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -95,12 +90,16 @@ public class Gateway {
     }
     
     public void sendMessage(Model model, String buddyJID) throws XMPPException {
-//        System.out.println(String.format("Sending message '%1$s' to user %2$s", message, buddyJID));
         Chat chat = chatManager.createChat(buddyJID, messageListener);
         String message = RDFToString(model);
         chat.sendMessage(message);
     }
-        
+
+    public void sendMessage(String message, String buddyJID) throws XMPPException {
+    	Chat chat = chatManager.createChat(buddyJID, messageListener);
+    	chat.sendMessage(message);
+    }
+
     class MyMessageListener implements MessageListener {
 
         public void processMessage(Chat chat, Message message) {
