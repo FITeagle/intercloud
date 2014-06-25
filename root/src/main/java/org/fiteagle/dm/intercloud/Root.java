@@ -109,10 +109,10 @@ public class Root {
     }
     
     public void connectToSparql(String serviceURI) {
-    	sparqlEndPointAdd = DatasetAccessorFactory.createHTTP(serviceURI);
+    	sparqlEndPointAdd = DatasetAccessorFactory.createHTTP(serviceURI+"data");
     	//Model model = ModelFactory.createDefaultModel();
     	//sparqlEndPoint.putModel(model);
-    	sparqlEndPointQuery = DatasetFactory.create(serviceURI+"?default");
+    	sparqlEndPointQuery = DatasetFactory.create(serviceURI+"data?default");
     }
     
     public void destroy() {
@@ -165,7 +165,8 @@ public class Root {
     	public void processMessage(Chat chat, Message message) {
             String body = message.getBody();
             messageList.add(body);
-            addRDFToSparql(stringToRDF(body));
+            Model model =stringToRDF(body);
+            addRDFToSparql(model);
         }
         
     }

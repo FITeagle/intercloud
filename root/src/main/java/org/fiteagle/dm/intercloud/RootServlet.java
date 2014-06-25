@@ -32,7 +32,7 @@ public class RootServlet extends HttpServlet {
     
     public void init(ServletConfig config) throws ServletException {
     	super.init(config);
-        root.init("http://localhost:3030/geoTags/data"); 
+        root.init("http://localhost:3030/geoTags/"); 
        	ServletContext servletContext = config.getServletContext();
        	servletContext.setAttribute("root", root);
 
