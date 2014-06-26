@@ -1,0 +1,29 @@
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix j.1:   <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix j.0:   <http://xmlns.com/foaf/0.1/> .
+
+<http://www.av.tu-berlin.de>
+        rdfs:comment  "Future Internet Testbed Experimentation and Management Framework" ;
+        rdfs:label    "FITeagle" ;
+        j.1:lat       "52.516377" ;
+        j.1:long      "13.323732" ;
+        j.0:homepage  "fiteagle.org" ;
+        j.0:mbox      "fiteagle@av.tu-berlin.de" .
+
+<http://example.wuhan.cn>
+        rdfs:comment  "Chinese Cloud" ;
+        rdfs:label    "CHCloud" ;
+        j.1:lat       "30.594786" ;
+        j.1:long      "114.348503" ;
+        j.0:homepage  "xgeradezhou.com" ;
+        j.0:mbox      "billylinux.oi@gmail.com" .
+
+<http://example.london.uk>
+        rdfs:comment  "English Cloud" ;
+        rdfs:label    "ENCloud" ;
+        j.1:lat       "51.513261" ;
+        j.1:long      "-0.129408" ;
+        j.0:homepage  "youcanguess.com" ;
+        j.0:mbox      "guess@anywhere.com" .
+

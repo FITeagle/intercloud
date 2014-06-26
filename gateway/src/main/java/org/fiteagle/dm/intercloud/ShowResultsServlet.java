@@ -28,7 +28,7 @@ public class ShowResultsServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setIntHeader("Refresh", 2);
-		response.setContentType("text/html");
+		response.setContentType("text/plain");
 		
 		HttpSession session = request.getSession(false);
 		gateway = (Gateway) session.getAttribute("gateway");

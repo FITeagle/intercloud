@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +20,6 @@ public class RootServlet extends HttpServlet {
 
     static String PAGE_FOOTER = "</body></html>";
 	
-	Root root = new Root("localhost", 5222);
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -30,12 +28,11 @@ public class RootServlet extends HttpServlet {
         super();
     }
     
-    public void init(ServletConfig config) throws ServletException {
-    	super.init(config);
+    public void init(ServletConfig config) {
+    	
+    	Root root = new Root("localhost", 5222);
         root.init("http://localhost:3030/geoTags/"); 
-       	ServletContext servletContext = config.getServletContext();
-       	servletContext.setAttribute("root", root);
-
+        config.getServletContext().setAttribute("root", root);
     }
 
 	/**
@@ -46,6 +43,7 @@ public class RootServlet extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.println(PAGE_HEADER);
+		Root root = (Root) request.getServletContext().getAttribute("root");
 		ArrayList<String> messageList = root.getMessage();
 		out.println("<h1>" + Integer.toString(messageList.size()) + " Messages Recieved</h1>");
 		for (int i = 0; i != messageList.size(); i++) {
