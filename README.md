@@ -42,19 +42,19 @@ http://localhost:8080/gateway/
 
 For login in the gateway, you can use any username, if the username is used for the first time, an account will be created, if the username has already be registered, make sure your password is correct.
 
-![](https://raw.github.com/FITeagle/intercloud/image/login.png)
+![](https://raw.github.com/FITeagle/intercloud/master/image/login.png)
 
 After login, two functions of the gateway can be tested.
 
-![](https://raw.github.com/FITeagle/intercloud/image/gatewayfunction.png)
+![](https://raw.github.com/FITeagle/intercloud/master/image/gatewayfunction.png)
 
 With the "Add Resource" function, a new node with relevant geograghical information can be added.
 
-![](https://raw.github.com/FITeagle/intercloud/image/addresource.png)
+![](https://raw.github.com/FITeagle/intercloud/master/image/addresource.png)
 
 With the "Query Resource" function, resources hosted on the root can be queried with SPARQL. 
 
-![](https://raw.github.com/FITeagle/intercloud/image/rootSPARQL.png)
+![](https://raw.github.com/FITeagle/intercloud/master/image/rootSPARQL.png)
 
 Try the following SPARQL query:
 
@@ -74,15 +74,15 @@ http://localhost:8080/root/LodLive/app_en.html
 
 You can use the resource URI to search the resource.
 
-![](https://raw.github.com/FITeagle/intercloud/image/lodlive.png)
+![](https://raw.github.com/FITeagle/intercloud/master/image/lodlive.png)
 
 And get the resource demonstrated after start
 
-![](https://raw.github.com/FITeagle/intercloud/image/lodlivefiteagle.png)
+![](https://raw.github.com/FITeagle/intercloud/master/image/lodlivefiteagle.png)
 
 The specific information about the resource can be found on the webpage as well as the geographical position of the resource shown on Google map.
 
-![](https://raw.github.com/FITeagle/intercloud/image/lodlivemap.png)
+![](https://raw.github.com/FITeagle/intercloud/master/image/lodlivemap.png)
 
 ##Check the XMPP clients status on XMPP server of OpenFire
 Go to web page
