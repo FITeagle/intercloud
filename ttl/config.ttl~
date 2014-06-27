@@ -44,7 +44,7 @@
     ja:defaultGraph
       [ rdfs:label "geoTags.ttl";
         a ja:MemoryModel;
-        ja:content [ja:externalContent <file:Data/geoTags.ttl>];
+        ja:content [ja:externalContent <file:geoTags.ttl>];
       ] ;
     .
 
