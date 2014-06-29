@@ -13,6 +13,6 @@
   </parent>
   <name>Intercloud::Root</name>
   <build>
-  	<finalName>${artifactId}</finalName>
+  	<finalName>${project.artifactId}</finalName>
   </build>
 </project>

@@ -12,6 +12,6 @@
   </parent>
   <name>Intercloud::Gateway</name>
   <build>
-  	<finalName>${artifactId}</finalName>
+  	<finalName>${project.artifactId}</finalName>
   </build>
 </project>
