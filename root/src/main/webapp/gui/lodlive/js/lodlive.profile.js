@@ -12,7 +12,7 @@ $.jStorage.set('profile', {
 			},
 			useForInverseSameAs : true,
 			/*change this*/
-			endpoint : 'http://localhost:3030/geoTags/query',
+			endpoint : 'http://root-intercloud.av.tu-berlin.de:3030/geoTags/query',
 			examples : [{
 				label : 'FITeagle',
 				uri : 'http://www.av.tu-berlin.de'
