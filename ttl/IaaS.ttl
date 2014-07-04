@@ -1,0 +1,906 @@
+@prefix : <http://127.0.0.1/IaaS.owl#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsp: <http://www.owl-ontologies.com/2005/08/07/xsp.owl#> .
+@prefix IaaS: <http://127.0.0.1/IaaS.owl#> .
+@prefix daml: <http://www.daml.org/2001/03/daml+oil#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+@prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> .
+@base <http://127.0.0.1/IaaS.owl> .
+
+<http://127.0.0.1/IaaS.owl> rdf:type owl:Ontology ;
+                            
+                            owl:versionInfo "0.1"^^xsd:float ;
+                            
+                            owl:versionIRI <http://127.0.0.1/IaaS.owl> .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+###  http://www.w3.org/2002/07/owl#versionInfo
+
+owl:versionInfo rdf:type owl:AnnotationProperty .
+
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#lat
+
+wgs:lat rdf:type owl:AnnotationProperty .
+
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#long
+
+wgs:long rdf:type owl:AnnotationProperty .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://127.0.0.1/IaaS.owl#partOf
+
+:partOf rdf:type owl:ObjectProperty .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://127.0.0.1/IaaS.owl#address
+
+:address rdf:type owl:DatatypeProperty ;
+         
+         rdfs:domain :Network ;
+         
+         rdfs:range xsd:string ;
+         
+         rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#allocation
+
+:allocation rdf:type owl:DatatypeProperty ;
+            
+            rdfs:domain :Network ;
+            
+            rdfs:range xsd:string ;
+            
+            rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#architecture
+
+:architecture rdf:type owl:DatatypeProperty ;
+              
+              rdfs:domain :Compute ;
+              
+              rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#cores
+
+:cores rdf:type owl:DatatypeProperty ;
+       
+       rdfs:domain :Compute ;
+       
+       rdfs:range xsd:integer ;
+       
+       rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#gateway
+
+:gateway rdf:type owl:DatatypeProperty ;
+         
+         rdfs:domain :Network ;
+         
+         rdfs:range xsd:string ;
+         
+         rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#gpu
+
+:gpu rdf:type owl:DatatypeProperty ;
+     
+     rdfs:domain :Compute ;
+     
+     rdfs:range xsd:string ;
+     
+     rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#hostname
+
+:hostname rdf:type owl:DatatypeProperty ;
+          
+          rdfs:domain :Compute ;
+          
+          rdfs:range xsd:string ;
+          
+          rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#label
+
+:label rdf:type owl:DatatypeProperty ;
+       
+       rdfs:domain :Network ;
+       
+       rdfs:range xsd:string ;
+       
+       rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#memory
+
+:memory rdf:type owl:DatatypeProperty ;
+        
+        rdfs:domain :Compute ;
+        
+        rdfs:range xsd:string ;
+        
+        rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#persistent
+
+:persistent rdf:type owl:DatatypeProperty ;
+            
+            rdfs:domain :Compute ;
+            
+            rdfs:range xsd:string ;
+            
+            rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#price
+
+:price rdf:type owl:DatatypeProperty ;
+       
+       rdfs:domain :Compute ;
+       
+       rdfs:range xsd:string ;
+       
+       rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#size
+
+:size rdf:type owl:DatatypeProperty ;
+      
+      rdfs:domain :Storage ;
+      
+      rdfs:range xsd:string ;
+      
+      rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#speed
+
+:speed rdf:type owl:DatatypeProperty ;
+       
+       rdfs:domain :Compute ;
+       
+       rdfs:range xsd:string ;
+       
+       rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#state
+
+:state rdf:type owl:DatatypeProperty ;
+       
+       rdfs:domain :Compute ;
+       
+       rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#status
+
+:status rdf:type owl:DatatypeProperty ;
+        
+        rdfs:domain :Storage ;
+        
+        rdfs:range xsd:string ;
+        
+        rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#summary
+
+:summary rdf:type owl:DatatypeProperty ;
+         
+         rdfs:range xsd:string ;
+         
+         rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#time-to-live
+
+:time-to-live rdf:type owl:DatatypeProperty ;
+              
+              rdfs:domain :CloudResource ;
+              
+              rdfs:range xsd:float ;
+              
+              rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#update-time
+
+:update-time rdf:type owl:DatatypeProperty ;
+             
+             rdfs:domain :CloudResource ;
+             
+             rdfs:range xsd:dateTime ;
+             
+             rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://127.0.0.1/IaaS.owl#vlan
+
+:vlan rdf:type owl:DatatypeProperty ;
+      
+      rdfs:domain :Network ;
+      
+      rdfs:range xsd:string ;
+      
+      rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://www.w3.org/2002/07/owl#topDataProperty
+
+owl:topDataProperty rdf:type owl:DatatypeProperty .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://127.0.0.1/IaaS.owl#AmazonCompute
+
+:AmazonCompute rdf:type owl:Class ;
+               
+               rdfs:subClassOf :Compute .
+
+
+
+###  http://127.0.0.1/IaaS.owl#AmazonNetwork
+
+:AmazonNetwork rdf:type owl:Class ;
+               
+               rdfs:subClassOf :Network .
+
+
+
+###  http://127.0.0.1/IaaS.owl#AmazonStorage
+
+:AmazonStorage rdf:type owl:Class ;
+               
+               rdfs:subClassOf :Storage .
+
+
+
+###  http://127.0.0.1/IaaS.owl#CloudResource
+
+:CloudResource rdf:type owl:Class ;
+               
+               rdfs:subClassOf :Resources .
+
+
+
+###  http://127.0.0.1/IaaS.owl#Compute
+
+:Compute rdf:type owl:Class ;
+         
+         rdfs:subClassOf :CloudResource .
+
+
+
+###  http://127.0.0.1/IaaS.owl#Federation
+
+:Federation rdf:type owl:Class ;
+            
+            rdfs:subClassOf :Resources .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBMCompute
+
+:IBMCompute rdf:type owl:Class ;
+            
+            rdfs:subClassOf :Compute .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBMNetwork
+
+:IBMNetwork rdf:type owl:Class ;
+            
+            rdfs:subClassOf :Network .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBMStorage
+
+:IBMStorage rdf:type owl:Class ;
+            
+            rdfs:subClassOf :Storage .
+
+
+
+###  http://127.0.0.1/IaaS.owl#Infrastructure
+
+:Infrastructure rdf:type owl:Class ;
+                
+                rdfs:subClassOf :Resources .
+
+
+
+###  http://127.0.0.1/IaaS.owl#Network
+
+:Network rdf:type owl:Class ;
+         
+         rdfs:subClassOf :CloudResource .
+
+
+
+###  http://127.0.0.1/IaaS.owl#Resources
+
+:Resources rdf:type owl:Class .
+
+
+
+###  http://127.0.0.1/IaaS.owl#Storage
+
+:Storage rdf:type owl:Class ;
+         
+         rdfs:subClassOf :CloudResource .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://127.0.0.1/IaaS.owl#Amazon160
+
+:Amazon160 rdf:type :AmazonStorage ,
+                    owl:NamedIndividual ;
+           
+           :size "160"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#Amazon1690
+
+:Amazon1690 rdf:type :AmazonStorage ,
+                     owl:NamedIndividual ;
+            
+            :size "1690"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#Amazon3370
+
+:Amazon3370 rdf:type :AmazonStorage ,
+                     owl:NamedIndividual ;
+            
+            :size "3370"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#Amazon350
+
+:Amazon350 rdf:type :AmazonStorage ,
+                    owl:NamedIndividual ;
+           
+           :size "350"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#Amazon420
+
+:Amazon420 rdf:type :AmazonStorage ,
+                    owl:NamedIndividual ;
+           
+           :size "420"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#Amazon850
+
+:Amazon850 rdf:type :AmazonStorage ,
+                    owl:NamedIndividual ;
+           
+           :size "850"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#AmazonClusterEightXLCompute
+
+:AmazonClusterEightXLCompute rdf:type :AmazonCompute ,
+                                      owl:NamedIndividual ;
+                             
+                             :speed "1"^^xsd:string ;
+                             
+                             :memory "60.5"^^xsd:string ;
+                             
+                             :cores 88 ;
+                             
+                             :architecture "x86"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#AmazonClusterGpuQuadrupleXLCompute
+
+:AmazonClusterGpuQuadrupleXLCompute rdf:type :AmazonCompute ,
+                                             owl:NamedIndividual ;
+                                    
+                                    :speed "1"^^xsd:string ;
+                                    
+                                    :gpu "2"^^xsd:string ;
+                                    
+                                    :memory "22"^^xsd:string ;
+                                    
+                                    :cores 33 ;
+                                    
+                                    :architecture "x86"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#AmazonClusterQuadrupleXLCompute
+
+:AmazonClusterQuadrupleXLCompute rdf:type :AmazonCompute ,
+                                          owl:NamedIndividual ;
+                                 
+                                 :speed "1"^^xsd:string ;
+                                 
+                                 :memory "23"^^xsd:string ;
+                                 
+                                 :cores 33 ;
+                                 
+                                 :architecture "x86"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#AmazonHiCpuMediumCompute
+
+:AmazonHiCpuMediumCompute rdf:type :AmazonCompute ,
+                                   owl:NamedIndividual ;
+                          
+                          :speed "1"^^xsd:string ;
+                          
+                          :memory "1.7"^^xsd:string ;
+                          
+                          :cores 5 ;
+                          
+                          :architecture "i386"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#AmazonHiCpuXLCompute
+
+:AmazonHiCpuXLCompute rdf:type :AmazonCompute ,
+                               owl:NamedIndividual ;
+                      
+                      :speed "1"^^xsd:string ;
+                      
+                      :cores 20 ;
+                      
+                      :memory "7"^^xsd:string ;
+                      
+                      :architecture "x86"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#AmazonHiMemoryDoubleXLCompute
+
+:AmazonHiMemoryDoubleXLCompute rdf:type :AmazonCompute ,
+                                        owl:NamedIndividual ;
+                               
+                               :speed "1"^^xsd:string ;
+                               
+                               :cores 13 ;
+                               
+                               :memory "34"^^xsd:string ;
+                               
+                               :architecture "x86"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#AmazonHiMemoryQuadrupleXLCompute
+
+:AmazonHiMemoryQuadrupleXLCompute rdf:type :AmazonCompute ,
+                                           owl:NamedIndividual ;
+                                  
+                                  :speed "1"^^xsd:string ;
+                                  
+                                  :cores 26 ;
+                                  
+                                  :memory "68.4"^^xsd:string ;
+                                  
+                                  :architecture "x86"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#AmazonHiMemoryXLCompute
+
+:AmazonHiMemoryXLCompute rdf:type :AmazonCompute ,
+                                  owl:NamedIndividual ;
+                         
+                         :speed "1"^^xsd:string ;
+                         
+                         :memory "17.1"^^xsd:string ;
+                         
+                         :cores 6 ;
+                         
+                         :architecture "x86"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#AmazonLargeCompute
+
+:AmazonLargeCompute rdf:type :AmazonCompute ,
+                             owl:NamedIndividual ;
+                    
+                    :speed "1"^^xsd:string ;
+                    
+                    :cores 4 ;
+                    
+                    :memory "7.5"^^xsd:string ;
+                    
+                    :architecture "x86"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#AmazonMicroCompute
+
+:AmazonMicroCompute rdf:type :AmazonCompute ,
+                             owl:NamedIndividual ;
+                    
+                    :memory "0.613"^^xsd:string ;
+                    
+                    :speed "1.0"^^xsd:string ;
+                    
+                    :cores 2 ;
+                    
+                    :architecture "i386"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#AmazonSmallCompute
+
+:AmazonSmallCompute rdf:type :AmazonCompute ,
+                             owl:NamedIndividual ;
+                    
+                    :cores 1 ;
+                    
+                    :speed "1.0"^^xsd:string ;
+                    
+                    :memory "1.7"^^xsd:string ;
+                    
+                    :architecture "i386"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#AmazonXLCompute
+
+:AmazonXLCompute rdf:type :AmazonCompute ,
+                          owl:NamedIndividual ;
+                 
+                 :speed "1"^^xsd:string ;
+                 
+                 :memory "15"^^xsd:string ;
+                 
+                 :cores 8 ;
+                 
+                 :architecture "x86"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#ComputeUserDefined
+
+:ComputeUserDefined rdf:type :Compute ,
+                             owl:NamedIndividual ;
+                    
+                    :time-to-live "10.0"^^xsd:float ;
+                    
+                    :update-time "2014-07-03T14:54:42"^^xsd:dateTime ;
+                    
+                    :cores 4 ;
+                    
+                    :architecture "i386"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBM1024
+
+:IBM1024 rdf:type :IBMStorage ,
+                  owl:NamedIndividual ;
+         
+         rdfs:label "IBM 1024"^^xsd:anyURI ;
+         
+         :size "1024"^^xsd:string ;
+         
+         :partOf :TUB_Bob .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBM175
+
+:IBM175 rdf:type :IBMStorage ,
+                 owl:NamedIndividual ;
+        
+        :size "175"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBM2048
+
+:IBM2048 rdf:type :IBMStorage ,
+                  owl:NamedIndividual ;
+         
+         :size "2048"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBM350
+
+:IBM350 rdf:type :IBMStorage ,
+                 owl:NamedIndividual ;
+        
+        :size "350"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBM60
+
+:IBM60 rdf:type :IBMStorage ,
+                owl:NamedIndividual ;
+       
+       :size "60"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBM850
+
+:IBM850 rdf:type :IBMStorage ,
+                 owl:NamedIndividual ;
+        
+        :size "850"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBM9600
+
+:IBM9600 rdf:type :IBMStorage ,
+                  owl:NamedIndividual ;
+         
+         :size "9600"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBMBronzeCopper32bCompute
+
+:IBMBronzeCopper32bCompute rdf:type :IBMCompute ,
+                                    owl:NamedIndividual ;
+                           
+                           :cores 1 ;
+                           
+                           :speed "1.25"^^xsd:string ;
+                           
+                           :memory "2"^^xsd:string ;
+                           
+                           :architecture "i386"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBMBronzeCopper64bCompute
+
+:IBMBronzeCopper64bCompute rdf:type :IBMCompute ,
+                                    owl:NamedIndividual ;
+                           
+                           :speed "1.25"^^xsd:string ;
+                           
+                           :cores 2 ;
+                           
+                           :memory "4"^^xsd:string ;
+                           
+                           :architecture "x86"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBMGold32bCompute
+
+:IBMGold32bCompute rdf:type :IBMCompute ,
+                            owl:NamedIndividual ;
+                   
+                   :speed "1.25"^^xsd:string ;
+                   
+                   :cores 4 ;
+                   
+                   :memory "4"^^xsd:string ;
+                   
+                   :architecture "i386"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBMGold64bCompute
+
+:IBMGold64bCompute rdf:type :IBMCompute ,
+                            owl:NamedIndividual ;
+                   
+                   :speed "1.25"^^xsd:string ;
+                   
+                   :memory "16"^^xsd:string ;
+                   
+                   :cores 8 ;
+                   
+                   :architecture "x86"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBMPlatinum64bCompute
+
+:IBMPlatinum64bCompute rdf:type :IBMCompute ,
+                                owl:NamedIndividual ;
+                       
+                       :speed "1.25"^^xsd:string ;
+                       
+                       :cores 16 ;
+                       
+                       :memory "16"^^xsd:string ;
+                       
+                       :architecture "x86"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBMReservationUnitCompute
+
+:IBMReservationUnitCompute rdf:type :IBMCompute ,
+                                    owl:NamedIndividual ;
+                           
+                           :speed "1.25"^^xsd:string ;
+                           
+                           :cores 64 ;
+                           
+                           :memory "96"^^xsd:string ;
+                           
+                           :architecture "Any"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBMSilver32bCompute
+
+:IBMSilver32bCompute rdf:type :IBMCompute ,
+                              owl:NamedIndividual ;
+                     
+                     :speed "1.25"^^xsd:string ;
+                     
+                     :cores 2 ;
+                     
+                     :memory "4"^^xsd:string ;
+                     
+                     :architecture "i386"^^xsd:string .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IBMSilver64bCompute
+
+:IBMSilver64bCompute rdf:type :IBMCompute ,
+                              owl:NamedIndividual ;
+                     
+                     rdfs:label "IBM Silver 64b Compute Node"^^xsd:anyURI ;
+                     
+                     :speed "1.25"^^xsd:string ;
+                     
+                     :cores 4 ;
+                     
+                     :memory "8"^^xsd:string ;
+                     
+                     :architecture "x86"^^xsd:string ;
+                     
+                     :partOf :TUB_Alice .
+
+
+
+###  http://127.0.0.1/IaaS.owl#IEEE_Intercloud_Testbed
+
+:IEEE_Intercloud_Testbed rdf:type :Federation ,
+                                  owl:NamedIndividual ;
+                         
+                         rdfs:label "IEEE Intercloud Testbed" ;
+                         
+                         rdfs:seeAlso "http://intercloudtestbed.org"^^xsd:anyURI .
+
+
+
+###  http://127.0.0.1/IaaS.owl#TUB_Alice
+
+:TUB_Alice rdf:type :Infrastructure ,
+                    owl:NamedIndividual ;
+           
+           rdfs:label "Alice Cloud at TUB"^^xsd:anyURI ;
+           
+            wgs:lat       "52.516377" ;
+            wgs:long      "13.323732" ;
+
+           
+           :partOf :IEEE_Intercloud_Testbed .
+
+
+
+###  http://127.0.0.1/IaaS.owl#TUB_Bob
+
+:TUB_Bob rdf:type :Infrastructure ,
+                  owl:NamedIndividual ;
+         
+         rdfs:label "Bob Cloud at Wuhan"^^xsd:anyURI ;
+         
+         wgs:lat "30.594786" ;
+         
+         wgs:long "114.348503" ;
+         
+         :partOf :IEEE_Intercloud_Testbed .
+
+
+
+
+###  Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net
+
