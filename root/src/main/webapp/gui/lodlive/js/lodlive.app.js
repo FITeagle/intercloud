@@ -331,7 +331,7 @@ $(function() {
 		form.bind('submit', function() {
 			var value = $(this).find('*[name=startFrom]').val();
 			if (value != '') {
-				document.location = '?' + urlencode($.trim(value));
+				document.location = '?' + $.trim(value);
 			} else {
 				myAlert(lang('impostaUnaURI'));
 			}
