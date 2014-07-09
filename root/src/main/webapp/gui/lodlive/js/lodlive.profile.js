@@ -12,7 +12,7 @@ $.jStorage.set('profile', {
 			},
 			useForInverseSameAs : true,
 			/*change this*/
-			endpoint : 'http://localhost:3030/IaaS/query',
+			endpoint : 'http://root-intercloud.av.tu-berlin.de:3030/IaaS/query',
 			examples : [{
 				label : 'Alice Cloud at TUB',
 				uri : 'http://127.0.0.1/IaaS.owl#TUB_Alice'
