@@ -12,16 +12,16 @@ $.jStorage.set('profile', {
 			},
 			useForInverseSameAs : true,
 			/*change this*/
-			endpoint : 'http://root-intercloud.av.tu-berlin.de:3030/geoTags/query',
+			endpoint : 'http://localhost:3030/IaaS/query',
 			examples : [{
-				label : 'FITeagle',
-				uri : 'http://www.av.tu-berlin.de'
+				label : 'Alice Cloud at TUB',
+				uri : 'http://127.0.0.1/IaaS.owl#TUB_Alice'
 			}, {
-				label : 'CHCloud',
-				uri : 'http://example.wuhan.cn'
+				label : 'Bob Cloud at Wuhan',
+				uri : 'http://127.0.0.1/IaaS.owl#TUB_Bob'
 			}, {
-				label : 'ENCloud',
-				uri : 'http://example.london.uk'
+				label : 'IEEE Intercloud Testbed',
+				uri : 'http://127.0.0.1/IaaS.owl#IEEE_Intercloud_Testbed'
 			}]
 		}
 	},
