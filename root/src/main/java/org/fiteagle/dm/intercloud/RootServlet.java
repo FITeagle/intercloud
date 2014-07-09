@@ -30,7 +30,7 @@ public class RootServlet extends HttpServlet {
     
     public void init(ServletConfig config) {
     	
-    	Root root = new Root("localhost", 5222);
+    	Root root = new Root("root-intercloud.av.tu-berlin.de", 5222);
         root.init("http://root-intercloud.av.tu-berlin.de:3030/IaaS/"); 
         config.getServletContext().setAttribute("root", root);
     }
