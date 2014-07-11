@@ -60,7 +60,7 @@ Try the following SPARQL query:
 
 ```
 SELECT ?s ?p ?o
-FROM <http://localhost:3030/geoTags/data?default>
+FROM <http://localhost:3030/IaaS/data?default>
 WHERE { ?s ?p ?o }
 LIMIT 10
 ```
