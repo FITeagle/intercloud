@@ -113,7 +113,7 @@ $(function() {
 			form.bind('submit', function() {
 				var value = $(this).find('input[name=startFrom]').val();
 				if (value != '') {
-					document.location = '?' + $.trim(value);
+					document.location = '?' + escape($.trim(value));
 				} else {
 					myAlert(lang('impostaUnaURI'));
 				}

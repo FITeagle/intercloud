@@ -15,13 +15,13 @@ $.jStorage.set('profile', {
 			endpoint : 'http://root-intercloud.av.tu-berlin.de:3030/IaaS/query',
 			examples : [{
 				label : 'Alice Cloud at TUB',
-				uri : 'http://127.0.0.1/IaaS.owl%23TUB_Alice'
+				uri : 'http://127.0.0.1/IaaS.owl#TUB_Alice'
 			}, {
 				label : 'Bob Cloud at Wuhan',
-				uri : 'http://127.0.0.1/IaaS.owl%23TUB_Bob'
+				uri : 'http://127.0.0.1/IaaS.owl#TUB_Bob'
 			}, {
 				label : 'IEEE Intercloud Testbed',
-				uri : 'http://127.0.0.1/IaaS.owl%23IEEE_Intercloud_Testbed'
+				uri : 'http://127.0.0.1/IaaS.owl#IEEE_Intercloud_Testbed'
 			}]
 		}
 	},
