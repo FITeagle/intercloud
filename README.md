@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/FITeagle/intercloud.svg?branch=master)](https://travis-ci.org/FITeagle/intercloud)
+
 # FITeagle Intercloud
 
 Intercloud project implementing simplified functionalities of IEEE P2303 Intercloud draft Standard
