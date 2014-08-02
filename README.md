@@ -24,14 +24,11 @@ Open a new terminal and start XMPP server
 ```
 Keep the XMPP server running
 ##Compile and Deploy root and gateway
-Relocate into the root or gateway folder and use the following command
+Relocate into the intercloud folder and use the following command
 ```
-./intercloud.sh deployRoot
+mvn clean test wildfly:deploy
 ```
-or
-```
-./intercloud.sh deployGateway
-```
+
 ##Check the function of the root and gateway
 Open web site for root
 ```

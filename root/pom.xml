@@ -1,18 +1,30 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
+  <name>FITeagle :: North :: IEEE Intercloud :: Root</name>
+  <groupId>org.fiteagle.north.intercloud</groupId>
   <artifactId>root</artifactId>
   <packaging>war</packaging>
-  <dependencies>
-  </dependencies>
+
   <parent>
-  	<groupId>org.fiteagle.dm</groupId>
+  	<groupId>org.fiteagle.north</groupId>
   	<artifactId>intercloud</artifactId>
-  	<version>0.0.1-SNAPSHOT</version>
-  	<relativePath>..</relativePath>
+  	<version>0.1-SNAPSHOT</version>
   </parent>
-  <name>Intercloud::Root</name>
+
   <build>
   	<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<version>${wildfly.version}</version>
+				<configuration>
+					<skip>false</skip>
+					<filename>${project.build.finalName}.war</filename>
+				</configuration>
+			</plugin>
+		</plugins>
   </build>
 </project>
