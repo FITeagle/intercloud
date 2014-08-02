@@ -3,6 +3,7 @@
 # FITeagle Intercloud
 
 Intercloud project implementing simplified functionalities of IEEE P2303 Intercloud draft Standard
+This is the source code of all the components in the Intercloud project
 
 ## Prerequisite
 Deploy FITeagle platform according to https://github.com/FITeagle/bootstrap/README.md
@@ -38,8 +39,38 @@ and for gateway
 ```
 http://localhost:8080/gateway/ 
 ```
+##Take use of the deployed intercloud infrastructure
 
-For login in the gateway, you can use any username, if the username is used for the first time, an account will be created, if the username has already be registered, make sure your password is correct.
+There is already deployed infrastructure for one root and two gateways Alice and Bob.
+
+To visit the root, open web page
+
+```
+http://root-intercloud.av.tu-berlin.de/root/
+```
+
+To visit the gateway Alice and Bob
+
+```
+http://alice-gw-intercloud.av.tu-berlin.de/gateway/login.html
+```
+```
+http://bob-gw-intercloud.av.tu-berlin.de/gateway/login.html
+```
+
+For login in the gateway, use
+
+```
+username:alice
+password:alice
+```
+for gateway alice, and
+
+```
+username:bob
+password:bob
+```
+for gateway bob
 
 ![](https://raw.github.com/FITeagle/intercloud/master/image/login.png)
 
@@ -59,7 +90,7 @@ Try the following SPARQL query:
 
 ```
 SELECT ?s ?p ?o
-FROM <http://localhost:3030/IaaS/data?default>
+FROM <http://root-intercloud.av.tu-berlin.de:3030/IaaS/data?default>
 WHERE { ?s ?p ?o }
 LIMIT 10
 ```
@@ -68,25 +99,23 @@ A same query function is also provided on the root side.
 But to query the resources, a web GUI LodLive is also available on the root side with the following link
 
 ```
-http://localhost:8080/root/LodLive/app_en.html
+http://root-intercloud.av.tu-berlin.de/root/gui/lodlive/
 ```
 
-You can use the resource URI to search the resource.
+Choose the example-IEEE Intercloud Testbed to provision the testbed
 
 ![](https://raw.github.com/FITeagle/intercloud/master/image/lodlive.png)
 
 And get the resource demonstrated after start
 
-![](https://raw.github.com/FITeagle/intercloud/master/image/lodlivefiteagle.png)
-
-The specific information about the resource can be found on the webpage as well as the geographical position of the resource shown on Google map.
-
 ![](https://raw.github.com/FITeagle/intercloud/master/image/lodlivemap.png)
+
+The specific information aout all the components and their geographical position can be checked through the GUI
 
 ##Check the XMPP clients status on XMPP server of OpenFire
 Go to web page
 ```
-http://localhost:9090/ 
+http://root-intercloud.av.tu-berlin.de:9090/login.jsp?url=%2Findex.jsp 
 ```
 Login with
 
