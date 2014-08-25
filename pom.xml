@@ -26,7 +26,7 @@
   <modules>
   	<module>gateway</module>
   	<module>root</module>
-    <module>rootSPAQL</module>
+    <module>rootSPARQL</module>
   </modules>
 
   <dependencies>

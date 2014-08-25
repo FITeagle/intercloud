@@ -7,20 +7,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import org.jivesoftware.smack.XMPPException;
-
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.sparql.vocabulary.FOAF;
-import com.hp.hpl.jena.vocabulary.RDFS;
 /**
  * Servlet implementation class GatewayServlet
  */
 public class AddResourceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	private static String addResourceExample =
+			"prefix : <http://127.0.0.1/IaaS.owl#> "
+			+ "prefix owl: <http://www.w3.org/2002/07/owl#> "
+			+ "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
+			+ "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
+			+ "prefix xsd: <http://www.w3.org/2001/XMLSchema#> "
+			+ "insert data { "
+			+ ":SampleCompute rdf:type :IBMCompute; "
+			+ "rdf:type owl:NamedIndividual; "
+			+ "rdfs:label \"IBM Silver 128b Compute Node\"^^xsd:anyURI ; "
+			+ ":speed \"5.25\"^^xsd:string ; "
+			+ ":cores 12; "
+			+ ":memory \"64\"^^xsd:string ; "
+			+ ":architecture \"x64\"^^xsd:string ;  "
+			+ ":partOf :TUB_Eve.}";
     /**
      * Default constructor. 
      */
@@ -29,42 +35,17 @@ public class AddResourceServlet extends HttpServlet {
     static String PAGE_FOOTER = "</body></html>";
 	
 	Gateway gateway;
-//	Gateway gateway2 = new Gateway("localhost", 5222);
 	
     public AddResourceServlet() {
     	super();
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	try {
-			response.setContentType("text/html");
-	
-			HttpSession session = request.getSession(false);
-			gateway = (Gateway) session.getAttribute("gateway");
-	
-			String resourceURI = request.getParameter("resourceURI");
-			String resourceName = request.getParameter("resourceName");
-			String resourceHomePage = request.getParameter("resourceHomePage");
-			String mailBox = request.getParameter("mailBox");
-			String resourceDescription = request.getParameter("resourceDescription");
-			String geoLat = request.getParameter("geoLat");
-			String geoLong = request.getParameter("geoLong");
-			
-			Model model = ModelFactory.createDefaultModel();
-			Property geoLa = model.createProperty("http://www.w3.org/2003/01/geo/wgs84_pos#", "lat");
-			Property geoLo = model.createProperty("http://www.w3.org/2003/01/geo/wgs84_pos#", "long");
-			model.createResource(resourceURI)
-				.addProperty(RDFS.label, resourceName)
-				.addProperty(FOAF.homepage, resourceHomePage)
-				.addProperty(FOAF.mbox, mailBox)
-				.addProperty(RDFS.comment, resourceDescription)
-				.addProperty(geoLa, geoLat)
-				.addProperty(geoLo, geoLong);
-					
-			gateway.sendMessage(model, "rootAdd@localhost/Smack"); 
-   	} catch (XMPPException e) {
-    		e.printStackTrace();
-    	}
+		response.setContentType("text/html");
+		HttpSession session = request.getSession(false);
+		gateway = (Gateway) session.getAttribute("gateway");
+		String user = (String) session.getAttribute("user");
+		gateway.sendMessage(addResourceExample, "root@localhost/Smack", "update", user.concat("@localhost/Smack"));
     	response.sendRedirect("LoginSuccess.html");
 	}
 	

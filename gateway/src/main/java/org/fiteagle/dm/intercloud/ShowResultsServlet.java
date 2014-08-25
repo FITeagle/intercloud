@@ -27,8 +27,8 @@ public class ShowResultsServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setIntHeader("Refresh", 2);
-		response.setContentType("text/plain");
+		//response.setIntHeader("Refresh", 2);
+		response.setContentType("text/html");
 		
 		HttpSession session = request.getSession(false);
 		gateway = (Gateway) session.getAttribute("gateway");
@@ -38,11 +38,14 @@ public class ShowResultsServlet extends HttpServlet {
 		ArrayList<String> messageList = gateway.getMessage();
 		out.println("<h1>" + Integer.toString(messageList.size()) + " Messages Recieved</h1>");
 		for (int i = 0; i != messageList.size(); i++) {
-			out.println("<h1>"+ Integer.toString(i) + ": " + messageList.get(i) +"</h1>");
+			out.println("<p>"+ Integer.toString(i) + ": " + "</p>");
+			out.println("<textarea rows=\"10\" cols=\"150\">");
+			out.println(messageList.get(i));
+			out.println("</textarea>");
+			out.println("<br>");
 		}
 		out.println();
-		out.println("<form action=\"LoginSuccess.html\">");
-		out.println("<input type=\"submit\" value=\"Back\" >");
+		out.println("<input type=\"button\" value=\"back\" onclick=\"window.location='LoginSuccess.html'\" >");
 		out.println("</form>");
 		out.println(PAGE_FOOTER);
 		out.close();

@@ -19,10 +19,10 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>RootServlet</servlet-name>
-  	<url-pattern>/RootServlet</url-pattern>
+  	<url-pattern>/monitor</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>QueryEndPointServlet</servlet-name>
-  	<url-pattern>/QueryEndPointServlet</url-pattern>
+  	<url-pattern>/query</url-pattern>
   </servlet-mapping>
 </web-app>

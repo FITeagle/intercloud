@@ -5,7 +5,7 @@
 
   <name>FITeagle :: North :: IEEE Intercloud :: Root</name>
   <groupId>org.fiteagle.north.intercloud</groupId>
-  <artifactId>rootSPAQL</artifactId>
+  <artifactId>rootSPARQL</artifactId>
   <packaging>war</packaging>
 
   <parent>
