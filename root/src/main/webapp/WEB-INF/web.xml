@@ -23,6 +23,6 @@
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>QueryEndPointServlet</servlet-name>
-  	<url-pattern>/query</url-pattern>
+  	<url-pattern>/QueryEndPointServlet</url-pattern>
   </servlet-mapping>
 </web-app>

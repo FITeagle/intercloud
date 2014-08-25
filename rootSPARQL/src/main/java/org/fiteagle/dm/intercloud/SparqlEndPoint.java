@@ -15,10 +15,8 @@ import com.hp.hpl.jena.query.ResultSetFormatter;
 
 
 public class SparqlEndPoint {
-	private Dataset intercloudDataset;
 	private String connectURI;
 	SparqlEndPoint(String serviceURI) {
-		intercloudDataset = DatasetFactory.create(serviceURI+"data?default");
 		connectURI = new String(serviceURI);
 	}
 	public String updateSparql(String updateMessage) {
@@ -28,6 +26,7 @@ public class SparqlEndPoint {
 		return uExe.toString();
 	}
     public String querySparql(String queryMessage) {
+    	Dataset intercloudDataset = DatasetFactory.create(connectURI+"data?default");
     	String resultMessage = new String();
         Query query = QueryFactory.create(queryMessage);
         QueryExecution qExe = QueryExecutionFactory.create(query, intercloudDataset);

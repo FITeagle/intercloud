@@ -36,11 +36,12 @@ public class QueryEndPointServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.println(PAGE_HEADER);
 		
+		out.println("<textarea rows=\"10\" cols=\"150\">");
 		out.println(results);
+		out.println("</textarea>");
+		out.println("<br>");
 		
-		out.println("<form action=\"queryResource.html\">");
-		out.println("<input type=\"submit\" value=\"Back\" >");
-		out.println("</form>");
+		out.println("<input type=\"button\" value=\"Back\" onclick=\"window.location='queryResource.html'\" >");
 		out.println(PAGE_FOOTER);
 		out.close();
 	}
