@@ -8,7 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class QueryEndPointServlet
@@ -25,23 +24,24 @@ public class QueryEndPointServlet extends HttpServlet {
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//HttpSession session = request.getSession(false);
+
 		ServletContext servletContext = request.getServletContext();
-		Root root = (Root) servletContext.getAttribute("root");
+		SparqlEndPoint sparqlEndPoint = (SparqlEndPoint) servletContext.getAttribute("sparqlEndPoint");
 		
 		String queryMessage = request.getParameter("query");
 		
-		String results = root.querySparql(queryMessage);
-
+		String results = sparqlEndPoint.querySparql(queryMessage);
+		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		out.println(PAGE_HEADER);
 		
+		out.println("<textarea rows=\"10\" cols=\"150\">");
 		out.println(results);
+		out.println("</textarea>");
+		out.println("<br>");
 		
-		out.println("<form action=\"queryResource.html\">");
-		out.println("<input type=\"submit\" value=\"Back\" >");
-		out.println("</form>");
+		out.println("<input type=\"button\" value=\"Back\" onclick=\"window.location='queryResource.html'\" >");
 		out.println(PAGE_FOOTER);
 		out.close();
 	}

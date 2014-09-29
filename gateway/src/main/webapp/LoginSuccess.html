@@ -5,12 +5,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="addResource.html">
-    <input type="submit" value="Add Resource">
+<form action="AddResourceServlet" method="post">
+    <input type="submit" value="Add Exmaple Resource">
 </form>
-<form action="queryResource.html">
-	<input type="submit" value="Query Resource">
+<form action="RemoveResourceServlet" method="post">
+    <input type="submit" value="Remove Example Resource">
 </form>
+<input type="button" value="Query Resource" onclick="window.location='queryResource.html'" >
 <br>
 <form action="LogoutServlet" method="post">
 <input type="submit" value="Logout" >

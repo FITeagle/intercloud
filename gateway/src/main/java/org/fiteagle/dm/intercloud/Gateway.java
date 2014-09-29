@@ -10,8 +10,15 @@ import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.ChatManagerListener;
 
 import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.vocabulary.RDF;
+import com.hp.hpl.jena.vocabulary.RDFS;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class Gateway {
@@ -88,6 +95,13 @@ public class Gateway {
     	String modelXML = out.toString();
     	return modelXML;
     }
+
+    public Model stringToRDF(String modelInString) {
+		InputStream in = new ByteArrayInputStream(modelInString.getBytes(StandardCharsets.UTF_8));
+		Model model = ModelFactory.createDefaultModel();
+		model.read(in, null, "JSON-LD");
+		return model;
+	}
     
     public void sendMessage(Model model, String buddyJID) throws XMPPException {
         Chat chat = chatManager.createChat(buddyJID, messageListener);
@@ -100,11 +114,27 @@ public class Gateway {
     	chat.sendMessage(message);
     }
 
+    public void sendMessage(String message, String buddyJID, String messageType, String sender) {
+		Model model = ModelFactory.createDefaultModel();
+		model.createResource("http://RDFMessage")
+			.addProperty(RDF.type, messageType)
+			.addProperty(RDF.value, message)
+			.addProperty(RDFS.isDefinedBy, sender);
+    	Chat chat = chatManager.createChat(buddyJID, messageListener);
+    	try {
+			chat.sendMessage(RDFToString(model));
+		} catch (XMPPException e) {
+			e.printStackTrace();
+		}
+    }
     class MyMessageListener implements MessageListener {
 
         public void processMessage(Chat chat, Message message) {
             String body = message.getBody();
-            messageList.add(body);
+			Model rdfMessage = stringToRDF(body);
+			Resource rdfMessageBody = rdfMessage.getResource("http://RDFMessage");
+			String content = rdfMessageBody.getProperty(RDF.value).getString();
+            messageList.add(content);
         }
         
     }

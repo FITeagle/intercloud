@@ -6,7 +6,12 @@
 </head>
 <body>
 <form action="QueryEndPointServlet" method="post">
-<textarea rows="20" cols="50" name="query"></textarea>
+<textarea rows="20" cols="70" name="query">
+prefix : <http://127.0.0.1/IaaS.owl#> 
+SELECT ?s
+FROM <http://localhost:3030/IaaS/data?default>
+WHERE { ?s :partOf :IEEE_Intercloud_Testbed}
+</textarea>
 <br>
 <input type="submit" value="Submit">
 </form>
