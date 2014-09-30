@@ -18,8 +18,8 @@ import org.jivesoftware.smack.XMPPException;
  */
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    private static String createNodeExample = 
-    		"prefix : <http://127.0.0.1/IaaS.owl#> "
+    private static String createNodeExample(String userName) { 
+    		return "prefix : <http://127.0.0.1/IaaS.owl#> "
     		+ "prefix owl: <http://www.w3.org/2002/07/owl#> "
     		+ "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
     		+ "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
@@ -28,12 +28,13 @@ public class LoginServlet extends HttpServlet {
     		+ "prefix xsd: <http://www.w3.org/2001/XMLSchema#> "
     		+ "base <http://127.0.0.1/IaaS.owl> "
     		+ "insert data { "
-    		+ ":TUB_Eve rdf:type :Infrastructure; "
+    		+ ":TUB_"+userName+" rdf:type :Infrastructure; "
     		+ "rdf:type owl:NamedIndividual; "
-    		+ "rdfs:label \"Eve Cloud in China\"^^xsd:anyURI ; "
+    		+ "rdfs:label \"Example Cloud\"^^xsd:anyURI ; "
     		+ "wgs:lat \"31.594786\" ; "
     		+ "wgs:long \"115.348503\"; "
     		+ ":partOf :IEEE_Intercloud_Testbed .}";
+    }
 	public LoginServlet() {
 		super();
 	}
@@ -56,7 +57,7 @@ public class LoginServlet extends HttpServlet {
             Cookie userName = new Cookie("user", user);
             userName.setMaxAge(30*60);
             response.addCookie(userName);
-            gateway.sendMessage(createNodeExample, "root@localhost/Smack", "update", user.concat("@localhost/Smack"));
+            gateway.sendMessage(createNodeExample(user), "root@localhost/Smack", "update", user.concat("@localhost/Smack"));
             response.sendRedirect("LoginSuccess.html");
         }else{
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.html");
