@@ -40,8 +40,8 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String user = request.getParameter("user");
         String pwd = request.getParameter("pwd");
-    	//Gateway gateway = new Gateway("root-intercloud.av.tu-berlin.de", 5222);
-        Gateway gateway = new Gateway("localhost", 5222);
+    	Gateway gateway = new Gateway("root-intercloud.av.tu-berlin.de", 5222);
+        //Gateway gateway = new Gateway("localhost", 5222);
     	try {
     		gateway.init();
     	} catch (XMPPException e) {

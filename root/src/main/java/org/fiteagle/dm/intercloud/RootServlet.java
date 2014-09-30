@@ -52,9 +52,9 @@ public class RootServlet extends HttpServlet {
     	jmsEndPoint = new JMSEndPoint("topic/core", "message = 'org.fiteagle.core.db.resources'");
     	xmppEndPoint = new XMPPEndPoint("root-intercloud.av.tu-berlin.de", 5222);
 */ 
-       	sparqlEndPoint = new SparqlEndPoint("http://localhost:3030/IaaS/");
+       	sparqlEndPoint = new SparqlEndPoint("http://root-intercloud.av.tu-berlin.de:3030/IaaS/");
 
-       	xmppEndPoint = new XMPPEndPoint("localhost", 5222);   	
+       	xmppEndPoint = new XMPPEndPoint("root-intercloud.av.tu-berlin.de", 5222);   	
     	xmppEndPoint.setMessageListener(new XMPPMessageListener());
     	xmppEndPoint.performLogin("root", "root");
 
