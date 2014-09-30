@@ -43,7 +43,7 @@ public class JMSSPARQLServlet extends HttpServlet {
 
     public void init(ServletConfig config) {
     	jmsEndPoint = new JMSEndPoint("topic/core", "message = 'org.fiteagle.core.db.resources.request'");
-       	sparqlEndPoint = new SparqlEndPoint("http://localhost:3030/IaaS/");
+       	sparqlEndPoint = new SparqlEndPoint("http://root-intercloud.av.tu-berlin.de:3030/IaaS/");
        	jmsRecievedMessageList = new ArrayList<String>();
        	jmsSendMessageList = new ArrayList<String>();
         jmsEndPoint.setMessageListener(new MessageReciever());
