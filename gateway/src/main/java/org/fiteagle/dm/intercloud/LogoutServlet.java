@@ -25,7 +25,7 @@ public class LogoutServlet extends HttpServlet {
     		+ "delete data { "
     		+ ":TUB_"+userName+" rdf:type :Infrastructure; "
     		+ "rdf:type owl:NamedIndividual; "
-    		+ "rdfs:label \"Example Cloud\"^^xsd:anyURI ; "
+    		+ "rdfs:label \""+userName+" Cloud\"^^xsd:anyURI ; "
     		+ "wgs:lat \"31.594786\" ; "
     		+ "wgs:long \"115.348503\"; "
     		+ ":partOf :IEEE_Intercloud_Testbed .}";
